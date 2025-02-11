@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDMV Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 50px; /* Adjust the height of the logo */
+        }
+
+        .cart-btn {
+            background-color: #120501;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .cart-btn:hover {
+            background-color: #d63c00;
+        }
+
+        .products-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 900px;
+        }
+
+        .product {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .product a:hover {
+            color: #ff4500;
+        }
+
+        .product img {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+        }
+
+        .price {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .pagination button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="time" id="current-time"></div>
+       
+        <a href="basket.html" class="basket-button">🛒</a>
+    </header>
+
+    <h1>Hoodie</h1>
+    <div class="products-container">
+        <div class="products">
+            <div class="product">
+                <a href="KDMV IS THE FUTURE HOODIE.html">
+                    <img src="https://kdmv.io/cdn/shop/files/HOODIES_0001_3-1.jpg?v=1734502245&width=720" alt="KDMV IS THE FUTURE HOODIE">
+                    <h3>KDMV IS THE FUTURE HOODIE </h3>
+                </a>
+                <p class="price">$42.00</p>
+            </div>
+            <div class="product">
+                <a href="Growing Up Sucks Hoodie.html">
+                    <img src="https://kdmv.io/cdn/shop/files/1-1.png?v=1737907292&width=990" alt="Growing Up Sucks Hoodie">
+                    <h3>Growing Up Sucks Hoodie</h3>
+                </a>
+                <p class="price">$42.00</p>
+            </div>
+            <div class="product">
+                <a href="Maxell Bootleg Hoodie.html">
+                    <img src="https://kdmv.io/cdn/shop/files/3-1_8c214cbb-3052-4f8b-8966-9542dacaa1cc.png?v=1737905270&width=990" alt="Maxell Bootleg Hoodie">
+                    <h3>Maxell Bootleg Hoodie</h3>
+                </a>
+                <p class="price">$42.00</p>
+            </div>
+            <div class="product">
+                <a href="KDMH Hoodie.html">
+                    <img src="https://kdmv.io/cdn/shop/files/2-1_5846bf2a-bf61-4738-8e60-d59afb60e67c.png?v=1737907646&width=990" alt="KDMH Hoodie">
+                    <h3>KDMH Hoodie</h3>
+                </a>
+                <p class="price">$42.00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button onclick="location.href='hoodi.html'">1</button>
+        <button onclick="location.href='Tshirt.html'">2</button>
+        <button onclick="location.href='cap.html'">3</button>
+        <button onclick="location.href='shoes.html'">4</button>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0'); 
+            const minutes = now.getMinutes().toString().padStart(2, '0'); 
+            const seconds = now.getSeconds().toString().padStart(2, '0'); 
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('current-time').textContent = timeString;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
+</body>
+</html>

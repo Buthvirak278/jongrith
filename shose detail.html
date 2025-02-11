@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>k.d.m.v - Maxell Bootleg Hoodie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      padding: 20px;
+      background-color: #fff; 
+      color: #333; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    header .back-button, header .basket-button {
+      color: black; 
+      font-size: 24px; 
+      text-decoration: none; 
+      cursor: pointer; 
+      transition: color 0.3s ease;
+      font-weight: bold; 
+    }
+    header .back-button:hover {
+      text-decoration: underline; 
+    }
+    header .basket-button {
+      font-size: 20px; 
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: 20px;
+    }
+    .product {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      margin: 0 20px;
+    }
+    .product h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .product p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .product .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .product .size {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .product .size label {
+      margin-right: 10px;
+    }
+    .product .size select {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .product .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+    }
+    .product .buttons button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      margin: 10px 0;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+    .product .buttons button:hover {
+      background-color: #555;
+      transform: scale(1.05);
+    }
+    .image-gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 30px;
+      width: 300px;
+    }
+    .image-gallery .large-image {
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .image-gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease; 
+    }
+   
+    .main-image:hover {
+      transform: scale(1.5); 
+    }
+    .image-gallery .small-images {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 250px;
+    }
+    .image-gallery .small-images img {
+      width: 115px;
+      height: auto;
+      border-radius: 8px;
+    }
+    .image-navigation {
+      display: flex;
+      justify-content: space-between;
+      width: 250px;
+      margin-top: 10px;
+    }
+    .image-navigation button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .image-navigation button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="Index.html" class="back-button">BACK</a>
+    <a href="basket.html" class="basket-button">🛒</a>
+  </header>
+  <div class="container">
+    <div class="image-gallery">
+      <div class="large-image">
+      
+        <img id="mainImage" src="https://kdmv.io/cdn/shop/files/gif_kdmvo_2.gif?v=1732827289&width=990"  alt="KDMV O's" class="main-image">
+      </div>
+      <div class="small-images">
+        <img src="https://kdmv.io/cdn/shop/files/gif_kdmvo_2.gif?v=1732827289&width=990" alt="Front View" onclick="changeImage('https://kdmv.io/cdn/shop/files/gif_kdmvo_2.gif?v=1732827289&width=990')">
+        <img src="https://kdmv.io/cdn/shop/files/top.png?v=1732599072&width=990" alt="Back View" onclick="changeImage('https://kdmv.io/cdn/shop/files/top.png?v=1732599072&width=990')">
+      
+    </div>
+    </div>
+    <div class="product">
+      <h2>KDMV O's</h2>
+      <p>SIZE CHART</p>
+      <div class="price">$130.00</div>
+      <div class="size">
+        <label for="size">Size:</label>
+        <select id="size">
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="47.5">47.5</option>
+        </select>
+      </div>
+      <div class="buttons">
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   function addToCart() {
+    const size = document.getElementById("size").value;
+    
+    if (!size) {
+        alert("Please select a size before adding to cart.");
+        return;
+    }
+
+    const price = 130.00;
+    const item = {
+        name: "KDMV O's",
+        price: price,
+        size: size,
+        img: document.getElementById('mainImage').src,
+        quantity: 1
+    };
+
+    let cart = JSON.parse(localStorage.getItem('basket')) || [];
+
+    // Check if the item with the same size already exists in the cart
+    let existingItem = cart.find(cartItem => cartItem.name === item.name && cartItem.size === item.size);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push(item);
+    }
+
+    localStorage.setItem('basket', JSON.stringify(cart));
+    alert("Item added to cart!");
+}
+
+  </script>
+</body>
+</html>
